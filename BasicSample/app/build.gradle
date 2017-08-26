@@ -17,6 +17,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -58,6 +59,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion";
     annotationProcessor "android.arch.lifecycle:compiler:" + rootProject.archLifecycleVersion;
     annotationProcessor "android.arch.persistence.room:compiler:" + rootProject.archRoomVersion;
+    kapt "com.android.databinding:compiler:2.3+"
 
     testCompile 'junit:junit:4.12'
 

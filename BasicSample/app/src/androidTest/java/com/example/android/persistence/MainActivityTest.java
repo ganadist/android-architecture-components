@@ -94,7 +94,7 @@ public class MainActivityTest {
         MainActivity activity = mActivityRule.getActivity();
 
         Fragment productListFragment = activity.getSupportFragmentManager()
-                .findFragmentByTag(ProductListFragment.TAG);
+                .findFragmentByTag(ProductListFragment.Companion.getTAG());
 
         return ViewModelProviders.of(productListFragment)
                 .get(ProductListViewModel.class);
