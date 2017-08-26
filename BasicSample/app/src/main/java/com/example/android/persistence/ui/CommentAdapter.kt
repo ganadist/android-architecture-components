@@ -40,15 +40,7 @@ class CommentAdapter(private val mCommentClickCallback: CommentClickCallback?) :
                 override fun getOldListSize() = mCommentList.size
                 override fun getNewListSize() = comments.size
                 override fun areItemsTheSame(old: Int, new: Int) = mCommentList[old].id == comments[new].id
-
-                override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                    val old = mCommentList[oldItemPosition]
-                    val comment = comments[newItemPosition]
-                    return old.id == comment.id
-                            && old.postedAt === comment.postedAt
-                            && old.productId == comment.productId
-                            && old.text == comment.text
-                }
+                override fun areContentsTheSame(old: Int, new: Int) = mCommentList[old] == comments[new]
             })
             mCommentList = comments
             diffResult.dispatchUpdatesTo(this)

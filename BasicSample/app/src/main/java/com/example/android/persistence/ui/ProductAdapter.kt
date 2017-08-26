@@ -41,15 +41,7 @@ class ProductAdapter(private val mProductClickCallback: ProductClickCallback?) :
                 override fun getOldListSize() = mProductList.size
                 override fun getNewListSize() = productList.size
                 override fun areItemsTheSame(old: Int, new: Int) = mProductList[old].id == productList[new].id
-
-                override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-                    val product = productList[newItemPosition]
-                    val old = productList[oldItemPosition]
-                    return product.id == old.id
-                            && product.description == old.description
-                            && product.name == old.name
-                            && product.price == old.price
-                }
+                override fun areContentsTheSame(old: Int, new: Int) = productList[new] == productList[old]
             })
             mProductList = productList
             result.dispatchUpdatesTo(this)
